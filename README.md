@@ -5,6 +5,29 @@ Next generation AWS IoT Client SDK for Javascript.
 This project is in **GENERAL AVAILABILITY**. If you have any issues or feature requests,
 please file an issue or pull request.
 
+__Jump To:__
+* [Getting Started](#Getting-Started)
+* [Using the SDK](#Using-the-SDK)
+* [Issues and Contributions](#issues-and-contributions)
+* [More Resources](#More-Resources)
+
+
+# Getting Started
+## Minimum Requirements
+*   Node 10.x+
+
+## Install from npm
+```sh
+npm install aws-iot-device-sdk-v2
+```
+
+## Build from source
+```sh
+npm install
+```
+
+## Dependencies
+
 This SDK is built on the AWS Common Runtime, a collection of libraries
 ([1](https://github.com/awslabs/aws-c-common),
 [2](https://github.com/awslabs/aws-c-io),
@@ -15,7 +38,7 @@ cross-platform, high-performance, secure, and reliable. The libraries are bound
 to JS by the [awscrt](https://github.com/awslabs/aws-crt-nodejs) package.
 
 The aws-crt package can be installed via npm 
-```
+```sh
 npm install aws-crt
 ```
 
@@ -24,25 +47,11 @@ Integration with AWS IoT Services such as
 and [Jobs](https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html)
 is provided by code that been generated from a model of the service.
 
-[API Documentation](https://aws.github.io/aws-iot-device-sdk-js-v2/globals.html)
+# Using the SDK
 
-# Installation
-## Minimum Requirements
-*   Node 10.x+
+## Samples
 
-## Install from npm
-```
-npm install aws-iot-device-sdk-v2
-```
-
-## Build from source
-```
-npm install
-```
-
-# Samples
-
-## node/pub_sub
+### node/pub_sub
 This sample uses the
 [Message Broker](https://docs.aws.amazon.com/iot/latest/developerguide/iot-message-broker.html)
 for AWS IoT to send and receive messages
@@ -52,10 +61,10 @@ The device should receive those same messages back from the message broker,
 since it is subscribed to that same topic.
 Status updates are continually printed to the console.
 
-Source: `samples/node/pub_sub`
+Source: `aws-iot-device-sdk-js-v2/samples/node/pub_sub`
 
 Run the sample like this:
-```
+```sh
 npm install
 node dist/index.js --endpoint <endpoint> --root-ca <file> --cert <file> --key <file>
 ```
@@ -108,7 +117,7 @@ and receive.
 This sample intended for use directly with the 
 [Getting Started with AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/latest/developerguide/gg-gs.html) guide.
 
-## fleet provisioning
+### fleet provisioning
 
 This sample uses the AWS IoT
 [Fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html)
@@ -117,20 +126,20 @@ to provision devices using either a CSR or KeysAndcertificate and subsequently c
 On startup, the script subscribes to topics based on the request type of either CSR or Keys topics,
 publishes the request to corresponding topic and calls RegisterThing.
 
-Source: `samples/node/fleet_provisioning`
+Source: `aws-iot-device-sdk-js-v2/samples/node/fleet_provisioning`
 
 Run the sample using CreateKeysAndCertificate:
-```
+```sh
 cd ~/samples/node/fleet_provisioning
 npm install
-node ./index.js --endpoint <endpoint> --ca_file <file> --cert <file> --key <file> --template_name <template name> --template_parameters <template parameters>
+node ./dist/index.js --endpoint <endpoint> --ca_file <file> --cert <file> --key <file> --template_name <template name> --template_parameters <template parameters>
 ```
 
 Run the sample using CreateCertificateFromCsr:
-```
+```sh
 cd ~/samples/node/fleet_provisioning
 npm install
-node ./index.js --endpoint <endpoint> --ca_file <file> --cert <file> --key <file> --template_name <template name> --template_parameters <template parameters> --csr_file <csr file>
+node ./dist/index.js --endpoint <endpoint> --ca_file <file> --cert <file> --key <file> --template_name <template name> --template_parameters <template parameters> --csr_file <csr file>
 ```
 
 Your Thing's
@@ -180,6 +189,16 @@ and receive.
 </pre>
 </details>
 
-# License
+# Issues and Contributions
+We welcome all kinds of contributions, for more info on how you can contribute or report issues, check [this guideline](./CONTRIBUTING.md).
 
-This library is licensed under the Apache 2.0 License.
+## Getting Help
+Please use these community resources for getting help. We use the GitHub issues for tracking bugs and feature requests.
+* [AWS IoT Developer Guide](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html) and [API Documentation](https://aws.github.io/aws-iot-device-sdk-js-v2/globals.html)
+* Learn how to [Contribute](./CONTRIBUTING.md).
+* Feel free to open an issue for usage questions, bugs or feature requests.
+
+# More Resources
+* [License](./LICENSE)
+* [Code of Conduct](./github/CODE_OF_CONDUCT.md)
+* [Notice](./NOTICE)
